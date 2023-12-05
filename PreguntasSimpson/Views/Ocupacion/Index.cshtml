@@ -1,0 +1,42 @@
+﻿@model IEnumerable<BDPersonajes.OcupacionPersonaje>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Lista ocupaciones</h1>
+
+<p>
+    <a asp-action="Create">Agregar ocupación</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idOcupacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcionOcupacion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idOcupacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcionOcupacion)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Ver detalles", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Eliminar", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
